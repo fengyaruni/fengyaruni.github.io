@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<meta http-equiv="Content-Type" content="text/html; charset = UTF-8" />
+		<title>关于</title>
+		<style>
+			@font-face {
+				font-family: 'Quicksand';
+				font-style: normal;
+				font-weight: 400;
+				src: local('Quicksand Regular'), local('Quicksand-Regular'), url(http://fonts.gstatic.com/s/quicksand/v5/sKd0EMYPAh5PYCRKSryvW1tXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+			}
+			
+			body {
+				overflow: hidden;
+				background-color: #000000;
+				user-select: none;
+				font-family: 'Quicksand', sans-serif;
+			}
+			
+			.Resume {
+				text-align: center;
+				clear: both;
+				color: white;
+			}
+			
+			.container {
+				width: 80%;
+				margin-left: 10%;
+				position: relative;
+				border-radius: 10px;
+				z-index: 1;
+			}
+			
+			.tab-group {
+				position: relative;
+				border: 1px solid #eee;
+				margin-top: 2.5em;
+				border-radius: 0 0 10px 10px;
+			}
+			
+			.tab-group section {
+				color: white;
+				opacity: 0;
+				height: 0;
+				padding: 0 1em;
+				overflow: hidden;
+				transition: opacity 0.4s ease, height 0.4s ease;
+			}
+			
+			.tab-group section.active {
+				opacity: 1;
+				height: auto;
+				overflow: visible;
+			}
+			
+			.tab-nav {
+				list-style: none;
+				margin: -2.5em -1px 0 0;
+				padding: 0;
+				height: 2.5em;
+				overflow: hidden;
+			}
+			
+			.tab-nav li {
+				display: inline;
+			}
+			
+			.tab-nav li a {
+				top: 1px;
+				border: 1px solid #eee;
+				position: relative;
+				display: block;
+				float: left;
+				border-radius: 10px 10px 0 0;
+				background: transparent;
+				line-height: 2em;
+				padding: 0 1em;
+				text-decoration: none;
+				color: white;
+				margin-top: .5em;
+				margin-right: 1px;
+				transition: background .2s ease, line-height .2s ease, margin .2s ease;
+			}
+			
+			.tab-nav li.active a {
+				border: 1px solid #eee;
+				background: #eee;
+				color: black;
+				line-height: 2.5em;
+				margin-top: 0;
+			}
+			
+			#devtime {
+				font-size: larger;
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="Resume">
+			<h1>关于...</h1>
+			<div class="container">
+				<div class="tab-group">
+					<ul class="tab-nav">
+						<li class="active">
+							<a href="#tab1">前言</a>
+						</li>
+						<li class="">
+							<a href="#tab2">应用</a>
+						</li>
+						<li class="">
+							<a href="#tab3">联系我</a>
+						</li>					
+						<li class="">
+							<a href="#tab5">鸣谢</a>
+						</li>
+					</ul>
+					<section id="tab1" title="前言" class="active">						
+						<p>
+							点滴想法的动力
+						</p>
+						<p style="line-height: 2em;text-align: left;text-indent: 2em;">
+							相对于鸿篇巨著，点点滴滴碎片化的idea算不了什么，作不了补天的奇石，
+							成不了流光彩霞，借助于开放的互联网，让这些工具栖身于此。
+						</p>
+						<p style="line-height: 2em;text-align: left;text-indent: 2em;">
+							<i></i>
+						</p>
+						<p style="line-height: 2em;text-align: left;margin: 0 2em;">
+							做些什么:<br /> 1、可能是灵光一现，我仿佛需要一个什么。<br /> 2、或者，为了更好地解决手头问题。</i>  <br /> 
+							3、也可能来自身边的意见。<br />
+							这些，或许就会形成一个个小工具。<br />
+						</p>					
+					</section>
+
+					<section id="tab2" title="应用" style="line-height: 2em;text-align: left;margin-left: 2em;">
+						<h3>应用列表</h3>
+						<p>千秋诗词文
+							<br />（更多进行中）
+						</p>
+					</section>
+					
+					<section id="tab3" title="联系我" style="line-height: 2em;text-align: left;margin-left: 2em;">
+						<h3>联系方式</h3>
+						<p>QQ：3635028394<br />
+						 邮箱：businessuny@126.com
+						</p>
+					</section>
+					
+					<section id="tab5" title="鸣谢" style="line-height: 2em;text-align: left;margin-left: 2em;">
+						<h3>感谢github提供托管站点</h3>
+						<h3>感谢HuGo提供前端模板,web属于你们</h3>
+						</p>
+					</section>
+				</div>
+			</div>
+			
+		</div>
+		<div id="canvas"></div>
+		<script src="protoclass.js"></script> 
+		<script src='box2d.js'></script>
+		<script src='Main.js'></script>
+		<script src="jquery.js"></script>
+		<script>
+			(function(defaults, $, window, document, undefined) {
+				$.extend({
+					tabifySetup: function(options) {
+						return $.extend(defaults, options);
+					}
+				}).fn.extend({
+					tabify: function(options) {
+						options = $.extend({}, defaults, options);
+						return $(this).each(function() {
+							var $element, tabHTML, $tabs, $sections;
+							$element = $(this);
+							$sections = $element.children();
+							tabHTML = '<ul class="tab-nav">';
+							$sections.each(function() {
+								if($(this).attr('title') && $(this).attr('id')) {
+									tabHTML += '<li><a href="#' + $(this).attr('id') + '">' + $(this).attr('title') + '</a></li>';
+								}
+							});
+							tabHTML += '</ul>';
+							$element.prepend(tabHTML);
+							$tabs = $element.find('.tab-nav li');
+							var activateTab = function(id) {
+								$tabs.filter('.active').removeClass('active');
+								$sections.filter('.active').removeClass('active');
+								$tabs.has('a[href="' + id + '"]').addClass('active');
+								$sections.filter(id).addClass('active');
+							};
+							$tabs.on('click', function(e) {
+								activateTab($(this).find('a').attr('href'));
+								e.preventDefault();
+							});
+							activateTab($tabs.first().find('a').attr('href'));
+						});
+					}
+				});
+			}({
+				property: 'value',
+				otherProperty: 'value'
+			}, jQuery, window, document));
+			$('.tab-group').tabify();
+			var date1 = new Date('2015-5-14'); //开始时间
+			var date2 = new Date(); //结束时间
+			var date3 = date2.getTime() - date1.getTime() //时间差的毫秒数
+				//计算出相差天数
+			var days = Math.floor(date3 / (24 * 3600 * 1000))
+			$("#devtime").text(days);
+		</script>
+	</body>
+
+</html>
